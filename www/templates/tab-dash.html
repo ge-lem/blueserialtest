@@ -1,0 +1,36 @@
+<ion-view view-title="Dashboard">
+  <ion-content class="padding">
+    <h2>Welcome to Ionic</h2>
+    <div class="list">
+      <div class="item item-input-inset">
+        <select ng-model="$parent.device"
+                    ng-options="de.name for de in devices">
+                    <option value="">-- choose device --</option>
+        </select>
+        <button ng-click = "connect()" class="button">
+          {{connectionState ? 'Disconnect':'Connect' }}
+        </button>
+        <button ng-click = "scan()" class="button">
+          Scan
+        </button>
+      </div>
+      <div class="item item-input">
+        <textarea id="rx" placeholder="Console" ng-model="rx" showTail></textarea>
+      </div>
+      <div class="item item-input-inset">
+        <input type="text" placeholder="Send" ng-model="$parent.tx">
+        <button ng-click = "send()" class="button">Send</button>
+        <button ng-click = "atv()" class="button">AT/V</button>
+      </div>
+      <div class="item item-input-inset">
+        <button ng-click = "att24()" class="button">ATT24</button>
+        <button ng-click = "esc()" class="button">ESC</button>
+        <button ng-click = "clear()" class="button">Clear</button>
+      </div>
+
+      <div class="item item-input">
+        {{log}}
+      <div>
+    </div>
+  </ion-content>
+</ion-view>
